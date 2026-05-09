@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo</title>
+
+    <!-- Caminhos corrigidos -->
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/catalog.css">
+</head>
+<body>
+
+    <header class="top-bar">
+        <button id="btn-voltar-categorias" class="btn-back">VOLTAR</button>
+        <h1 id="catalog-title">Catálogo</h1>
+    </header>
+
+    <main class="catalog-wrapper">
+        <div class="catalogo" id="catalog-list">
+
+            <div class="item" 
+                 data-title="Item 1"
+                 data-description="Descrição genérica do item 1. Este texto é apenas um placeholder."
+                 data-note="Nota: —"
+                 data-images="https://via.placeholder.com/600x800, https://via.placeholder.com/600x600">
+                <div class="item-header">
+                    <span>Item 1</span>
+                    <span class="expand-icon">+</span>
+                </div>
+            </div>
+
+            <div class="item" 
+                 data-title="Item 2"
+                 data-description="Descrição genérica do item 2. Conteúdo neutro e ilustrativo."
+                 data-note="Nota: —"
+                 data-images="https://via.placeholder.com/600x700">
+                <div class="item-header">
+                    <span>Item 2</span>
+                    <span class="expand-icon">+</span>
+                </div>
+            </div>
+
+            <div class="item" 
+                 data-title="Item 3"
+                 data-description="Descrição genérica do item 3. Use este espaço para descrever o item."
+                 data-note="Nota: —"
+                 data-images="">
+                <div class="item-header">
+                    <span>Item 3</span>
+                    <span class="expand-icon">+</span>
+                </div>
+            </div>
+
+            <div class="item" 
+                 data-title="Item 4"
+                 data-description="Descrição genérica do item 4. Texto de exemplo."
+                 data-note="Nota: —"
+                 data-images="https://via.placeholder.com/600x900, https://via.placeholder.com/500x500">
+                <div class="item-header">
+                    <span>Item 4</span>
+                    <span class="expand-icon">+</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Overlay -->
+    <div id="overlay" class="overlay">
+        <div class="overlay-content">
+            <span id="close-overlay" class="close-icon">&times;</span>
+            <h2 id="overlay-title"></h2>
+            <p id="overlay-description"></p>
+            <p id="overlay-note" class="overlay-note"></p>
+            <button id="open-gallery" class="btn-gallery">Ver imagens de exemplo</button>
+        </div>
+    </div>
+
+    <!-- Galeria -->
+    <div id="gallery-overlay" class="gallery-overlay">
+        <span id="gallery-close" class="gallery-close">&times;</span>
+
+        <div class="gallery-content">
+            <span id="gallery-prev" class="gallery-nav">&#10094;</span>
+            <img id="gallery-image" src="" alt="Imagem">
+            <span id="gallery-next" class="gallery-nav">&#10095;</span>
+        </div>
+
+        <div id="gallery-counter" class="gallery-counter">1/1</div>
+    </div>
+
+    <!-- Caminhos JS corrigidos -->
+    <script src="../js/overlay.js"></script>
+    <script src="../js/gallery.js"></script>
+    <script src="../js/catalog.js"></script>
+</body>
+</html>
