@@ -96,3 +96,13 @@ galleryContent.addEventListener('mousemove', (e) => {
     const walk = (x - startX) * 2; // Multiplique por 2 para o arraste ser mais rápido
     galleryContent.scrollLeft = scrollLeft - walk;
 });
+
+if (galleryClose) {
+    // Usar touchend costuma ser mais rápido e preciso que 'click' no mobile
+    galleryClose.addEventListener('touchend', (e) => {
+        e.preventDefault(); // Impede que o clique "passe" para o que está atrás
+        closeGallery();
+    });
+    
+    galleryClose.onclick = closeGallery;
+}

@@ -173,12 +173,26 @@
 }
 
 .gallery-close {
-    position: absolute;
+    position: fixed; /* Mudado de absolute para fixed */
     top: 20px;
-    right: 30px;
+    right: 20px;
     color: #fff;
-    font-size: 3rem;
+    font-size: 3.5rem; /* Um pouco maior para facilitar o toque no celular */
     cursor: pointer;
+    z-index: 10001; /* Um nível acima do gallery-overlay (que é 10000) */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente para dar contraste */
+    border-radius: 50%;
+    line-height: 1;
+}
+
+/* Garante que o overlay da galeria cubra TUDO, inclusive o overlay de baixo */
+.gallery-overlay {
+    z-index: 10000 !important;
 }
 
 .btn-gallery {
