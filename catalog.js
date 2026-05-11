@@ -3,9 +3,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentCat = params.get("cat");
     const catalogTitle = document.getElementById("catalog-title");
 
+    // Dicionário de nomes personalizados para os catálogos
+    const nomesCatalogos = {
+        'f': 'Lista de Fetiches',
+        't': 'Sugestões de Temas',
+        'p': 'Galeria de Personagens',
+        'a': 'Adicionais'
+    };
+
     // 1. Filtragem de Itens e Título
     if (currentCat && catalogTitle) {
-        catalogTitle.textContent = `Catálogo ${currentCat.toUpperCase()}`;
+        // Verifica se a categoria existe no nosso dicionário, 
+        // senão usa o padrão antigo (Catálogo F, etc)
+        const nomePersonalizado = nomesCatalogos[currentCat] || `Catálogo ${currentCat.toUpperCase()}`;
+        
+        catalogTitle.textContent = nomePersonalizado;
+
         document.querySelectorAll(".item").forEach(item => {
             item.style.display = item.getAttribute("data-cat") === currentCat ? "flex" : "none";
         });

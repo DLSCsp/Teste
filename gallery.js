@@ -97,12 +97,32 @@ galleryContent.addEventListener('mousemove', (e) => {
     galleryContent.scrollLeft = scrollLeft - walk;
 });
 
+// 1. Função de fechar unificada
+function closeGallery() {
+    if (galleryOverlay) {
+        galleryOverlay.classList.remove("active");
+        galleryContent.innerHTML = ''; // Limpa para evitar bugs de memória
+    }
+}
+
+// 2. Configuração do Botão de Fechar (Mobile + Desktop)
 if (galleryClose) {
-    // Usar touchend costuma ser mais rápido e preciso que 'click' no mobile
-    galleryClose.addEventListener('touchend', (e) => {
-        e.preventDefault(); // Impede que o clique "passe" para o que está atrás
+    // Evento de toque (instantâneo no celular)
+    galleryClose.addEventListener('touchstart', (e) => {
+        e.preventDefault(); // Impede o clique de "atravessar" para o que está atrás
         closeGallery();
-    });
-    
+    }, { passive: false });
+
+    // Evento de clique (mouse no PC)
     galleryClose.onclick = closeGallery;
+}
+
+// 3. Fechar ao clicar fora (no fundo escuro)
+if (galleryOverlay) {
+    galleryOverlay.addEventListener('click', (e) => {
+        // Só fecha se clicar no fundo (overlay), não nas imagens
+        if (e.target === galleryOverlay) {
+            closeGallery();
+        }
+    });
 }
