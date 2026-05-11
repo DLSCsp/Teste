@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorias</title>
+
+    <!-- Caminhos CSS -->
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="components.css">
+</head>
+<body>
+
+<header class="top-bar">
+    <button id="voltar-index" class="btn-back">VOLTAR</button>
+    <h1>Categorias</h1>
+</header>
+
+<div class="categories-container" style="flex-direction: column; align-items: center;">
+    <p class="text-center" style="margin-bottom: 20px; font-weight: 600;">
+        Clique em uma das opções para saber mais.
+    </p>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+        <button class="category-button" data-cat="f">
+            <span class="category-title">Fetiches</span>
+            <span class="category-subtitle">Meus fetiches favoritos</span>
+        </button>
+
+        <button class="category-button" data-cat="t">
+            <span class="category-title">Temas</span>
+            <span class="category-subtitle">Sugestões de temas</span>
+        </button>
+
+        <button class="category-button" data-cat="p">
+            <span class="category-title">Personagens</span>
+            <span class="category-subtitle">Personagens prontos</span>
+        </button>
+
+        <button class="category-button" data-cat="a">
+            <span class="category-title">Adicionais</span>
+            <span class="category-subtitle">Efeitos adicionais</span>
+        </button>
+
+        <a href="favorites.html" class="category-button" style="border-color: var(--accent-color); text-decoration: none;">
+        <span class="category-title">Obras Favoritas</span>
+        <span class="category-subtitle">Hentais e mangás</span>
+        </a>
+    </div>
+</div>
+
+    <script src="core.js"></script>
+</body>
+</html>

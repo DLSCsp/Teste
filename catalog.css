@@ -1,0 +1,206 @@
+.catalogo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 22px;
+    margin: 20px 50px 20px 70px;
+}
+
+.item {
+    width: 260px;
+    height: 260px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    color: #fff;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    
+    /* Ajuste automático da imagem sem cortar */
+    background-size: contain; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #1a1a1a; /* Fundo para preencher espaços vazios */
+    
+    transition: transform var(--transition-fast);
+    z-index: 1;
+}
+
+.item:hover {
+    transform: scale(1.02);
+}
+
+.item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.6));
+    z-index: 2;
+    pointer-events: none;
+}
+
+.item-header {
+    background-color: var(--accent);
+    color: #000;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    z-index: 3;
+    position: relative;
+}
+
+.expand-icon {
+    font-size: 1.2rem;
+}
+
+/* ================================ */
+/* OVERLAY PRINCIPAL (DETALHES)     */
+/* ================================ */
+.overlay {
+    position: fixed; /* Prende na tela */
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: none; /* Escondido por padrão */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.overlay.active {
+    display: flex !important;
+}
+
+.overlay-content {
+    background-color: #1e1e1e;
+    padding: 30px;
+    border-radius: var(--radius-md);
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    color: #fff;
+    border: 1px solid #333;
+    /* Alinha o texto das tags <p>, <span> etc */
+    text-align: justify; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    
+    /* Garante que os itens internos possam ser empilhados corretamente */
+    display: flex;
+    flex-direction: column;
+}
+
+.overlay-content h2 {
+    text-align: center;
+    width: 100%;
+}
+
+.close-icon {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: var(--accent);
+    line-height: 1;
+}
+
+.overlay-note {
+    font-style: italic;
+    color: #bbb;
+    margin-top: 10px;
+}
+
+/* ================================ */
+/* OVERLAY DA GALERIA               */
+/* ================================ */
+.gallery-overlay {
+    position: fixed; /* Prende na tela */
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    display: none; /* Escondido por padrão */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10000; /* Acima do overlay principal */
+}
+
+.gallery-overlay.active {
+    display: flex !important;
+}
+
+.gallery-content {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    overflow-x: auto; /* Permite scroll horizontal */
+    scroll-snap-type: x mandatory; /* Faz as imagens "prenderem" no centro */
+    scroll-behavior: smooth; /* Movimento suave ao clicar nas setas */
+    gap: 0;
+    user-select: none; /* Impede selecionar texto/imagens ao arrastar */
+    cursor: grab; /* Mostra a "mãozinha" de arrastar */
+}
+
+.gallery-content:active {
+    cursor: grabbing; /* Mostra a "mãozinha" fechada ao clicar */
+}
+
+/* Esconde a barra de scroll no Chrome/Safari/Edge */
+.gallery-content::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery-content img {
+    flex: 0 0 100%; /* Cada imagem ocupa o ecrã inteiro do container */
+    width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    scroll-snap-align: center; /* Alinha a imagem ao centro do scroll */
+    pointer-events: none; /* Evita que o arrastar da imagem interfira no scroll */
+}
+
+.gallery-nav {
+    color: #fff;
+    font-size: 3rem;
+    cursor: pointer;
+    padding: 20px;
+    user-select: none;
+}
+
+.gallery-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+.btn-gallery {
+    display: block;       /* Transforma em bloco para aceitar margens laterais */
+    margin: 20px auto 0;  /* 'auto' nas laterais centraliza o botão */
+    width: fit-content;   /* Garante que o botão não ocupe a largura toda */
+    text-align: center;   /* Garante que o texto DENTRO do botão esteja no centro */
+}
+
+.gallery-counter {
+    color: #fff;
+    margin-top: 15px;
+    font-size: 1.2rem;
+}
+
+.catalog-wrapper {
+    position: relative;
+    z-index: 10; /* Garante que os itens fiquem acima de fundos mas abaixo da top-bar */
+    padding-top: 20px; 
+}
+
+.top-bar {
+    z-index: 1000 !important; /* Força a barra a ficar no topo de tudo */
+    pointer-events: auto; /* Garante que os botões dentro dela sejam clicáveis */
+}

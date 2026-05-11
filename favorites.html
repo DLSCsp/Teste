@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obras Favoritas - Wiki</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="components.css">
+    <style>
+        /* Estilo específico para o layout Wiki */
+        .wiki-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: rgba(15, 15, 15, 0.95);
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 30px;
+            min-height: 80vh;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .wiki-item {
+            display: flex;
+            justify-content: space-between;
+            background: #222;
+            border-left: 5px solid var(--accent-color, #ff0055);
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            gap: 20px;
+        }
+
+        .wiki-info {
+            flex: 1;
+        }
+
+        .wiki-info h2 {
+            margin-top: 0;
+            color: #fff;
+            font-size: 1.4rem;
+        }
+
+        .wiki-info p {
+            color: #ccc;
+            line-height: 1.5;
+        }
+
+        .wiki-image {
+            width: 120px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 4px;
+            background: #333;
+        }
+
+        .btn-back-wiki {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: transparent;
+            border: 1px solid #555;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .btn-back-wiki:hover {
+            background: #333;
+            border-color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-dark">
+    <div class="wiki-container">
+        <button class="btn-back-wiki" onclick="window.history.back()">← Voltar</button>
+        
+        <h1 style="color: white; border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 30px;">
+            Animes e hentais favoritos
+        </h1>
+
+        <div class="wiki-item">
+            <div class="wiki-info">
+                <h2>Koumi-Jima Shuu 7 de Umeru Mesu-Tachi - Hentai</h2>
+                <p>O sexo bruto e o extremo cio dos personagens me atraíram demais. Cada estocada faz um relevo crescer na personagem e a quantidade de orgasmos e fluídos é satisfatória.</p>
+            </div>
+            <img src="https://myanimelist.net/images/anime/1332/137237.jpg" alt="Thumbnail" class="wiki-image">
+        </div>
+
+        <div class="wiki-item">
+            <div class="wiki-info">
+                <h2>Em breve...</h2>
+                <p>...</p>
+            </div>
+            <img src="https://via.placeholder.com/120x160" alt="Thumbnail" class="wiki-image">
+        </div>
+
+    </div>
+</body>
+</html>
